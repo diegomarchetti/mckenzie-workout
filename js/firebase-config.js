@@ -7,15 +7,15 @@
 // 4. Copia la configurazione qui sotto
 
 export const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyC6Wm68RrQ_JO_PmXEUwUbcQUFm5FmpI0A",
+  authDomain: "mckenzie-workout.firebaseapp.com",
+  projectId: "mckenzie-workout",
+  storageBucket: "mckenzie-workout.firebasestorage.app",
+  messagingSenderId: "332755193291",
+  appId: "Y1:332755193291:web:4bff0947d113283b39fa4e"
 };
 
 // Firebase non è ancora configurato
 export const isFirebaseConfigured = () => {
-  return firebaseConfig.apiKey !== "YOUR_API_KEY";
+  return firebaseConfig.apiKey !== "AIzaSyC6Wm68RrQ_JO_PmXEUwUbcQUFm5FmpI0A";
 };
