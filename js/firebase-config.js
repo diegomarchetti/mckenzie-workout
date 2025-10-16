@@ -12,7 +12,7 @@ export const firebaseConfig = {
   projectId: "mckenzie-workout",
   storageBucket: "mckenzie-workout.firebasestorage.app",
   messagingSenderId: "332755193291",
-  appId: "Y1:332755193291:web:4bff0947d113283b39fa4e"
+  appId: "1:332755193291:web:4bff0947d113283b39fa4e"
 };
 
 // Firebase non è ancora configurato
