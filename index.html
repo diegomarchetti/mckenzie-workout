@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1976d2">
+  <meta name="description" content="McKenzie Workout Tracker - Programma di esercizi McKenzie per il benessere della schiena">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="McKenzie">
+  
+  <title>McKenzie Workout Tracker</title>
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/icons/icon-192x192.png">
+</head>
+<body>
+  <div class="container container-sm">
+    <!-- Header -->
+    <header style="padding: var(--spacing-xl) 0 var(--spacing-lg); position: relative;">
+      <button id="settingsBtn" class="btn btn-icon" style="position: absolute; right: 0; top: var(--spacing-lg);">
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+      <h1 class="text-center" style="margin-bottom: var(--spacing-sm);">🏋️ McKenzie Workout</h1>
+      <p class="text-center" style="color: var(--md-sys-color-on-surface-variant); margin-bottom: 0;">
+        Programma per il benessere della schiena
+      </p>
+    </header>
+
+    <!-- User Section -->
+    <div id="userSection" class="card card-elevated">
+      <div class="card-header">
+        <div id="userInfo" class="flex gap-md" style="align-items: center;">
+          <div id="userAvatar" class="hidden" style="width: 48px; height: 48px; border-radius: 50%; overflow: hidden;">
+            <img id="userPhoto" src="" alt="User" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div>
+            <div id="userName" class="card-title" style="margin-bottom: 0;">Ospite</div>
+            <div id="userEmail" class="hidden" style="font-size: var(--md-sys-typescale-body-small); color: var(--md-sys-color-on-surface-variant);"></div>
+          </div>
+        </div>
+        <button id="authBtn" class="btn btn-outlined">
+          <span class="material-symbols-outlined">login</span>
+          Accedi
+        </button>
+      </div>
+    </div>
+
+    <!-- Streak Card -->
+    <div id="streakCard" class="card card-elevated">
+      <div class="flex-between" style="align-items: center; margin-bottom: var(--spacing-md);">
+        <div>
+          <div class="card-subtitle" style="margin: 0;">Serie attuale</div>
+          <div id="streakCount" style="font-size: var(--md-sys-typescale-display-small); font-weight: 500; color: var(--md-sys-color-primary);">
+            0 🔥
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <div class="card-subtitle" style="margin: 0;">Record</div>
+          <div id="longestStreak" style="font-size: var(--md-sys-typescale-headline-medium); font-weight: 500; color: var(--md-sys-color-secondary);">
+            0
+          </div>
+        </div>
+      </div>
+      <div id="calendar" class="grid" style="grid-template-columns: repeat(7, 1fr); gap: var(--spacing-xs);"></div>
+    </div>
+
+    <!-- Start Workout Button -->
+    <button id="startWorkoutBtn" class="btn btn-primary btn-large" style="width: 100%; box-shadow: var(--md-sys-elevation-level3); margin-bottom: var(--spacing-lg);">
+      <span class="material-symbols-outlined icon-lg">play_circle</span>
+      Inizia Workout
+    </button>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-2" style="margin-bottom: var(--spacing-lg);">
+      <div class="card">
+        <div class="card-subtitle" style="margin-bottom: var(--spacing-xs);">Sessioni totali</div>
+        <div id="totalSessions" style="font-size: var(--md-sys-typescale-headline-large); font-weight: 500; color: var(--md-sys-color-primary);">0</div>
+      </div>
+      <div class="card">
+        <div class="card-subtitle" style="margin-bottom: var(--spacing-xs);">Tempo totale</div>
+        <div id="totalTime" style="font-size: var(--md-sys-typescale-headline-large); font-weight: 500; color: var(--md-sys-color-secondary);">0m</div>
+      </div>
+    </div>
+
+    <!-- Badges Section -->
+    <div class="card card-elevated">
+      <div class="card-header">
+        <div class="card-title">Badge</div>
+      </div>
+      <div id="badgesContainer">
+        <div id="badgesList" class="flex gap-md" style="overflow-x: auto; padding: var(--spacing-sm) 0;"></div>
+        <div id="noBadges" class="text-center" style="padding: var(--spacing-lg); color: var(--md-sys-color-on-surface-variant);">
+          Completa il tuo primo workout per sbloccare badge!
+        </div>
+      </div>
+    </div>
+
+    <!-- Next Badge Preview -->
+    <div id="nextBadgeCard" class="card hidden">
+      <div class="card-subtitle" style="margin-bottom: var(--spacing-sm);">Prossimo badge</div>
+      <div class="flex gap-md" style="align-items: center;">
+        <div id="nextBadgeIcon" style="font-size: 48px; opacity: 0.5;">🎯</div>
+        <div style="flex: 1;">
+          <div id="nextBadgeName" class="font-medium">Prima volta</div>
+          <div id="nextBadgeDesc" style="font-size: var(--md-sys-typescale-body-small); color: var(--md-sys-color-on-surface-variant);">
+            Completa il tuo primo workout
+          </div>
+          <div class="progress-bar" style="margin-top: var(--spacing-sm);">
+            <div id="nextBadgeProgress" class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- History Button -->
+    <button id="historyBtn" class="btn btn-outlined" style="width: 100%; margin-bottom: var(--spacing-2xl);">
+      <span class="material-symbols-outlined">history</span>
+      Storico Sessioni
+    </button>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: var(--spacing-xl) 0; color: var(--md-sys-color-on-surface-variant);">
+      <p style="font-size: var(--md-sys-typescale-body-small); margin: 0;">
+        McKenzie Workout Tracker v1.0
+      </p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

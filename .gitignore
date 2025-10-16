@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Firebase (keep config template, ignore actual credentials)
+# js/firebase-config.js will be committed with placeholders
+
+# Build outputs (if using build tools in future)
+dist/
+build/
+
+# Temporary files
+*.tmp
+.cache/

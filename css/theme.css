@@ -1,0 +1,157 @@
+/* Material Design 3 Theme - McKenzie Workout */
+
+:root {
+  /* Primary Colors */
+  --md-sys-color-primary: #1976d2;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #d3e4fd;
+  --md-sys-color-on-primary-container: #001c38;
+
+  /* Secondary Colors */
+  --md-sys-color-secondary: #00bcd4;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #c2e7ff;
+  --md-sys-color-on-secondary-container: #001e2b;
+
+  /* Tertiary Colors */
+  --md-sys-color-tertiary: #4caf50;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #c8e6c9;
+  --md-sys-color-on-tertiary-container: #1b5e20;
+
+  /* Error Colors */
+  --md-sys-color-error: #f44336;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffcdd2;
+  --md-sys-color-on-error-container: #b71c1c;
+
+  /* Surface Colors */
+  --md-sys-color-surface: #fefbff;
+  --md-sys-color-on-surface: #1a1c1e;
+  --md-sys-color-surface-variant: #e1e2ec;
+  --md-sys-color-on-surface-variant: #44474e;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f5f5f5;
+  --md-sys-color-surface-container: #eeeeee;
+  --md-sys-color-surface-container-high: #e0e0e0;
+  --md-sys-color-surface-container-highest: #d6d6d6;
+
+  /* Outline */
+  --md-sys-color-outline: #74777f;
+  --md-sys-color-outline-variant: #c4c6d0;
+
+  /* Background */
+  --md-sys-color-background: #fefbff;
+  --md-sys-color-on-background: #1a1c1e;
+
+  /* State Colors */
+  --md-sys-color-exercise-active: #4caf50;
+  --md-sys-color-rest: #ff9800;
+  --md-sys-color-ready: #2196f3;
+  --md-sys-color-paused: #9e9e9e;
+
+  /* Shadows */
+  --md-sys-elevation-level1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --md-sys-elevation-level2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --md-sys-elevation-level3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level4: 0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level5: 0 8px 12px 6px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.3);
+
+  /* Typography */
+  --md-sys-typescale-display-large: 57px;
+  --md-sys-typescale-display-medium: 45px;
+  --md-sys-typescale-display-small: 36px;
+  --md-sys-typescale-headline-large: 32px;
+  --md-sys-typescale-headline-medium: 28px;
+  --md-sys-typescale-headline-small: 24px;
+  --md-sys-typescale-title-large: 22px;
+  --md-sys-typescale-title-medium: 16px;
+  --md-sys-typescale-title-small: 14px;
+  --md-sys-typescale-body-large: 16px;
+  --md-sys-typescale-body-medium: 14px;
+  --md-sys-typescale-body-small: 12px;
+  --md-sys-typescale-label-large: 14px;
+  --md-sys-typescale-label-medium: 12px;
+  --md-sys-typescale-label-small: 11px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --md-sys-color-primary: #a8c7fa;
+  --md-sys-color-on-primary: #003062;
+  --md-sys-color-primary-container: #004788;
+  --md-sys-color-on-primary-container: #d3e4fd;
+
+  --md-sys-color-secondary: #7dd3fc;
+  --md-sys-color-on-secondary: #003544;
+  --md-sys-color-secondary-container: #004d61;
+  --md-sys-color-on-secondary-container: #c2e7ff;
+
+  --md-sys-color-tertiary: #81c784;
+  --md-sys-color-on-tertiary: #00390a;
+  --md-sys-color-tertiary-container: #005314;
+  --md-sys-color-on-tertiary-container: #c8e6c9;
+
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffdad6;
+
+  --md-sys-color-surface: #1a1c1e;
+  --md-sys-color-on-surface: #e2e2e6;
+  --md-sys-color-surface-variant: #44474e;
+  --md-sys-color-on-surface-variant: #c4c6d0;
+  --md-sys-color-surface-container-lowest: #0f1113;
+  --md-sys-color-surface-container-low: #1a1c1e;
+  --md-sys-color-surface-container: #1e2022;
+  --md-sys-color-surface-container-high: #282a2d;
+  --md-sys-color-surface-container-highest: #333538;
+
+  --md-sys-color-outline: #8e9099;
+  --md-sys-color-outline-variant: #44474e;
+
+  --md-sys-color-background: #1a1c1e;
+  --md-sys-color-on-background: #e2e2e6;
+
+  --md-sys-color-exercise-active: #81c784;
+  --md-sys-color-rest: #ffb74d;
+  --md-sys-color-ready: #64b5f6;
+  --md-sys-color-paused: #bdbdbd;
+}
+
+/* Utilities */
+.elevation-1 { box-shadow: var(--md-sys-elevation-level1); }
+.elevation-2 { box-shadow: var(--md-sys-elevation-level2); }
+.elevation-3 { box-shadow: var(--md-sys-elevation-level3); }
+.elevation-4 { box-shadow: var(--md-sys-elevation-level4); }
+.elevation-5 { box-shadow: var(--md-sys-elevation-level5); }
+
+.radius-sm { border-radius: var(--radius-sm); }
+.radius-md { border-radius: var(--radius-md); }
+.radius-lg { border-radius: var(--radius-lg); }
+.radius-xl { border-radius: var(--radius-xl); }
+.radius-full { border-radius: var(--radius-full); }
+
+.transition-fast { transition: all var(--transition-fast); }
+.transition-base { transition: all var(--transition-base); }
+.transition-slow { transition: all var(--transition-slow); }

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1976d2">
+  <title>Impostazioni - McKenzie</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+  <div class="container container-sm">
+    <!-- Header -->
+    <header class="settings-header">
+      <button id="backBtn" class="btn btn-icon">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <h1>Impostazioni</h1>
+      <div style="width: 48px;"></div>
+    </header>
+
+    <!-- Workout Settings -->
+    <section class="settings-section">
+      <h2 class="section-title">Workout</h2>
+      
+      <div class="card">
+        <div class="setting-item">
+          <div class="setting-info">
+            <div class="setting-label">Auto-run</div>
+            <div class="setting-description">Avvia automaticamente gli esercizi dopo il recupero</div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="autoRunToggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <div class="setting-label">Text-to-Speech</div>
+            <div class="setting-description">Annunci vocali degli esercizi</div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="ttsToggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <div class="setting-label">Vibrazione</div>
+            <div class="setting-description">Feedback tattile (solo mobile)</div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="vibrationToggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-item-vertical">
+          <div class="setting-label">Volume Audio</div>
+          <div class="slider-container">
+            <span class="material-symbols-outlined">volume_down</span>
+            <input type="range" id="volumeSlider" min="0" max="100" value="70" class="slider">
+            <span class="material-symbols-outlined">volume_up</span>
+            <span id="volumeValue" class="slider-value">70%</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-item-vertical">
+          <div class="setting-label">Velocità TTS</div>
+          <div class="slider-container">
+            <span style="font-size: 14px;">0.5x</span>
+            <input type="range" id="ttsRateSlider" min="50" max="200" value="100" class="slider">
+            <span style="font-size: 14px;">2x</span>
+            <span id="ttsRateValue" class="slider-value">1.0x</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercises Management -->
+    <section class="settings-section">
+      <div class="flex-between" style="align-items: center; margin-bottom: var(--spacing-md);">
+        <h2 class="section-title" style="margin: 0;">Esercizi</h2>
+        <button id="addExerciseBtn" class="btn btn-primary">
+          <span class="material-symbols-outlined">add</span>
+          Aggiungi
+        </button>
+      </div>
+
+      <div id="exercisesList" class="exercises-list"></div>
+
+      <div id="exerciseLimitWarning" class="hidden" style="text-align: center; padding: var(--spacing-md); color: var(--md-sys-color-error);">
+        Limite massimo di 20 esercizi raggiunto
+      </div>
+    </section>
+
+    <!-- Account Section -->
+    <section class="settings-section">
+      <h2 class="section-title">Account</h2>
+      
+      <div class="card">
+        <div id="accountInfo" class="setting-item">
+          <div class="setting-info">
+            <div id="accountName" class="setting-label">Ospite</div>
+            <div id="accountEmail" class="setting-description hidden"></div>
+          </div>
+          <button id="accountBtn" class="btn btn-outlined">Accedi</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <div class="setting-label">Reset Statistiche</div>
+            <div class="setting-description">Cancella tutti i dati salvati</div>
+          </div>
+          <button id="resetStatsBtn" class="btn btn-outlined" style="color: var(--md-sys-color-error);">
+            <span class="material-symbols-outlined">delete</span>
+            Reset
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Exercise Modal -->
+  <div id="exerciseModal" class="modal hidden">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Aggiungi Esercizio</h3>
+        <button id="closeModal" class="btn btn-icon">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <form id="exerciseForm" class="modal-body">
+        <div class="form-group">
+          <label for="exerciseName">Nome Esercizio</label>
+          <input type="text" id="exerciseName" class="form-input" required maxlength="50">
+        </div>
+
+        <div class="form-group">
+          <label for="exerciseNameTTS">Nome TTS (pronuncia)</label>
+          <input type="text" id="exerciseNameTTS" class="form-input" required maxlength="50">
+        </div>
+
+        <div class="form-group">
+          <label for="exerciseDescription">Descrizione</label>
+          <textarea id="exerciseDescription" class="form-input" rows="3" required maxlength="200"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo Esercizio</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="exerciseType" value="REPS" checked>
+              <span>Ripetizioni (REPS)</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="exerciseType" value="HOLD">
+              <span>Tempo (HOLD)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="exerciseSets">Serie</label>
+            <input type="number" id="exerciseSets" class="form-input" min="1" max="10" value="3" required>
+          </div>
+
+          <div class="form-group" id="repsGroup">
+            <label for="exerciseReps">Ripetizioni</label>
+            <input type="number" id="exerciseReps" class="form-input" min="1" max="100" value="10" required>
+          </div>
+
+          <div class="form-group hidden" id="durationGroup">
+            <label for="exerciseDuration">Durata (sec)</label>
+            <input type="number" id="exerciseDuration" class="form-input" min="5" max="300" value="30" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exerciseRest">Recupero (secondi)</label>
+          <input type="number" id="exerciseRest" class="form-input" min="5" max="120" value="20" required>
+        </div>
+
+        <div class="form-group">
+          <label for="exerciseEmoji">Emoji (opzionale)</label>
+          <input type="text" id="exerciseEmoji" class="form-input" maxlength="2" placeholder="🏋️">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelBtn" class="btn btn-outlined">Annulla</button>
+          <button type="submit" class="btn btn-primary">Salva</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/settings-app.js"></script>
+</body>
+</html>

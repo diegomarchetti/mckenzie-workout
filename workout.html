@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1976d2">
+  <title>Workout - McKenzie</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/workout.css">
+</head>
+<body>
+  <div class="workout-container">
+    <!-- Header -->
+    <header class="workout-header">
+      <button id="pauseBtn" class="btn btn-icon btn-outlined">
+        <span class="material-symbols-outlined">pause</span>
+      </button>
+      
+      <div class="workout-info">
+        <div class="workout-progress-text">Esercizio</div>
+        <div id="exerciseCount" class="workout-exercise-count">1 di 8</div>
+      </div>
+      
+      <button id="stopBtn" class="btn btn-icon btn-outlined">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="workout-progress-bar">
+      <div id="progressFill" class="workout-progress-fill" style="width: 0%;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="workout-main">
+      <!-- Exercise Card -->
+      <div id="exerciseCard" class="exercise-card">
+        <div id="exerciseEmoji" class="exercise-emoji">🏋️</div>
+        
+        <h2 id="exerciseName" class="exercise-name">Standing Extension</h2>
+        <div id="exerciseSubtitle" class="exercise-subtitle">Estensioni in piedi</div>
+        
+        <div id="setInfo" class="exercise-set-info">Set 1 di 2</div>
+        
+        <p id="exerciseDescription" class="exercise-description">
+          Mani sui fianchi, estendi lentamente il tronco
+        </p>
+
+        <!-- Timer (for HOLD exercises) -->
+        <div id="timerContainer" class="timer-container hidden">
+          <div id="timerCircle" class="timer-circle">
+            <svg class="timer-svg" viewBox="0 0 200 200">
+              <circle class="timer-circle-bg" cx="100" cy="100" r="90"></circle>
+              <circle id="timerProgress" class="timer-circle-progress" cx="100" cy="100" r="90"
+                stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+            </svg>
+            <div style="position: relative; z-index: 1; text-align: center;">
+              <div id="timerTime" class="timer-time">00:30</div>
+              <div id="timerLabel" class="timer-label">Mantieni</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next Exercise Preview -->
+        <div id="nextExercise" class="next-exercise-preview hidden">
+          <div class="next-exercise-label">Prossimo</div>
+          <div id="nextExerciseName" class="next-exercise-name">Press up</div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="workout-actions">
+        <button id="startBtn" class="btn workout-btn workout-btn-primary">
+          <span class="material-symbols-outlined">play_arrow</span>
+          <span id="startBtnText">Inizia</span>
+        </button>
+        
+        <button id="completeBtn" class="btn workout-btn workout-btn-complete hidden">
+          <span class="material-symbols-outlined">check_circle</span>
+          Set Completato
+        </button>
+        
+        <button id="skipBtn" class="btn workout-btn workout-btn-secondary hidden">
+          <span class="material-symbols-outlined">skip_next</span>
+          Salta Esercizio
+        </button>
+      </div>
+    </main>
+
+    <!-- Completion Screen (hidden by default) -->
+    <div id="completionScreen" class="completion-screen hidden">
+      <div class="completion-icon">🎉</div>
+      <h2 class="completion-title">Complimenti!</h2>
+      <p style="font-size: var(--md-sys-typescale-body-large); color: var(--md-sys-color-on-surface-variant); text-align: center;">
+        Hai completato il workout con successo!
+      </p>
+      
+      <div class="completion-stats">
+        <div class="stat-card">
+          <div id="statDuration" class="stat-value">15m</div>
+          <div class="stat-label">Durata</div>
+        </div>
+        <div class="stat-card">
+          <div id="statExercises" class="stat-value">8</div>
+          <div class="stat-label">Esercizi</div>
+        </div>
+        <div class="stat-card">
+          <div id="statSets" class="stat-value">25</div>
+          <div class="stat-label">Set totali</div>
+        </div>
+      </div>
+
+      <button id="backHomeBtn" class="btn btn-primary btn-large" style="width: 100%; margin-top: var(--spacing-xl);">
+        <span class="material-symbols-outlined">home</span>
+        Torna alla Home
+      </button>
+    </div>
+  </div>
+
+  <!-- Badge Unlock Modal -->
+  <div id="badgeUnlockModal" class="hidden">
+    <div class="overlay" id="badgeOverlay"></div>
+    <div class="badge-unlock">
+      <div id="badgeUnlockIcon" class="badge-icon">🎯</div>
+      <div class="badge-name" id="badgeUnlockName">Badge Sbloccato!</div>
+      <div class="badge-description" id="badgeUnlockDesc">Hai completato il tuo primo workout!</div>
+      <button id="closeBadgeBtn" class="btn btn-primary" style="margin-top: var(--spacing-lg);">
+        Fantastico!
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/workout-app.js"></script>
+</body>
+</html>

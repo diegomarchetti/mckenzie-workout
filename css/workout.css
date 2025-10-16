@@ -1,0 +1,376 @@
+/* Workout Screen Styles */
+
+.workout-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--md-sys-color-background);
+}
+
+/* Header */
+.workout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-sys-elevation-level1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.workout-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.workout-progress-text {
+  font-size: var(--md-sys-typescale-body-small);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.workout-exercise-count {
+  font-size: var(--md-sys-typescale-title-medium);
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Main Content */
+.workout-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+}
+
+/* Exercise Card */
+.exercise-card {
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--md-sys-elevation-level2);
+  transition: all var(--transition-base);
+}
+
+.exercise-card.state-active {
+  background-color: var(--md-sys-color-tertiary-container);
+  border: 2px solid var(--md-sys-color-tertiary);
+}
+
+.exercise-card.state-rest {
+  background-color: var(--md-sys-color-secondary-container);
+  border: 2px solid var(--md-sys-color-secondary);
+}
+
+.exercise-card.state-ready {
+  background-color: var(--md-sys-color-primary-container);
+  border: 2px solid var(--md-sys-color-primary);
+}
+
+.exercise-emoji {
+  font-size: 64px;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.exercise-name {
+  font-size: var(--md-sys-typescale-headline-medium);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: var(--spacing-xs);
+  color: var(--md-sys-color-on-surface);
+}
+
+.exercise-subtitle {
+  font-size: var(--md-sys-typescale-title-small);
+  text-align: center;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: var(--spacing-lg);
+}
+
+.exercise-set-info {
+  text-align: center;
+  font-size: var(--md-sys-typescale-title-medium);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  color: var(--md-sys-color-primary);
+}
+
+.exercise-description {
+  font-size: var(--md-sys-typescale-body-large);
+  text-align: center;
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+  padding: 0 var(--spacing-md);
+}
+
+/* Timer Circle */
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+}
+
+.timer-circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-circle-bg {
+  fill: none;
+  stroke: var(--md-sys-color-surface-variant);
+  stroke-width: 8;
+}
+
+.timer-circle-progress {
+  fill: none;
+  stroke: var(--md-sys-color-primary);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--transition-fast);
+}
+
+.timer-circle.state-active .timer-circle-progress {
+  stroke: var(--md-sys-color-tertiary);
+}
+
+.timer-circle.state-rest .timer-circle-progress {
+  stroke: var(--md-sys-color-secondary);
+}
+
+.timer-time {
+  font-size: var(--md-sys-typescale-display-medium);
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-label {
+  font-size: var(--md-sys-typescale-body-medium);
+  color: var(--md-sys-color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Action Buttons */
+.workout-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: auto;
+}
+
+.workout-btn {
+  width: 100%;
+  padding: var(--spacing-lg);
+  font-size: var(--md-sys-typescale-title-medium);
+  min-height: 64px;
+  border-radius: var(--radius-xl);
+}
+
+.workout-btn-primary {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.workout-btn-complete {
+  background-color: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-on-tertiary);
+}
+
+.workout-btn-secondary {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Next Exercise Preview */
+.next-exercise-preview {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  border-left: 4px solid var(--md-sys-color-primary);
+}
+
+.next-exercise-label {
+  font-size: var(--md-sys-typescale-label-small);
+  color: var(--md-sys-color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.next-exercise-name {
+  font-size: var(--md-sys-typescale-title-medium);
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Progress Bar */
+.workout-progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--md-sys-color-surface-variant);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.workout-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-secondary));
+  transition: width var(--transition-base);
+  border-radius: var(--radius-full);
+}
+
+/* Completion Screen */
+.completion-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-2xl);
+  gap: var(--spacing-lg);
+}
+
+.completion-icon {
+  font-size: 128px;
+  animation: bounce 1s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.completion-title {
+  font-size: var(--md-sys-typescale-headline-large);
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+.completion-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-md);
+  width: 100%;
+  margin-top: var(--spacing-lg);
+}
+
+.stat-card {
+  background-color: var(--md-sys-color-surface-container);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.stat-value {
+  font-size: var(--md-sys-typescale-headline-small);
+  font-weight: 500;
+  color: var(--md-sys-color-primary);
+}
+
+.stat-label {
+  font-size: var(--md-sys-typescale-body-small);
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: var(--spacing-xs);
+}
+
+/* Badge Unlock Animation */
+.badge-unlock {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--md-sys-color-surface-container);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--md-sys-elevation-level5);
+  z-index: 1000;
+  text-align: center;
+  animation: badgePopIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes badgePopIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.badge-icon {
+  font-size: 96px;
+  margin-bottom: var(--spacing-md);
+}
+
+.badge-name {
+  font-size: var(--md-sys-typescale-headline-small);
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.badge-description {
+  font-size: var(--md-sys-typescale-body-medium);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: fadeIn var(--transition-fast);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .workout-main {
+    padding: var(--spacing-md);
+  }
+
+  .exercise-card {
+    padding: var(--spacing-lg);
+  }
+
+  .timer-circle {
+    width: 160px;
+    height: 160px;
+  }
+
+  .timer-time {
+    font-size: var(--md-sys-typescale-display-small);
+  }
+
+  .exercise-name {
+    font-size: var(--md-sys-typescale-headline-small);
+  }
+}
